@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
+//const sequelize = require('../config/connection');
 const {Post, User, Comment} = require('../models');
 
 router.get('/', (req, res) => {
@@ -45,40 +45,7 @@ router.get('/', (req, res) => {
       });
   });
 
-  router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-      res.redirect('/');
-      return;
-    }
-  
-    res.render('login');
-  });
-
-
-  router.get('/signup', (req, res) => {
-    
-    if (req.session.loggedIn) {
-      res.redirect('/');
-      return;
-    }
-
-    res.render('signup');
-  });
-
-  router.get('/new-post', (req, res) => {
-
-  if (req.session.loggedIn) {
-    res.render('new-post')
-  } else {
-    
-      res.redirect('/');
-  }
-      
-    
-  })
-
-  
-router.get('/post/:id', (req, res) => {
+  router.get('/post/:id', (req, res) => {
   
     Post.findOne({
       where: {
@@ -125,6 +92,41 @@ router.get('/post/:id', (req, res) => {
         res.status(500).json(err);
       });
   });
+
+  router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    }
+  
+    res.render('login');
+  });
+
+
+  router.get('/signup', (req, res) => {
+    
+    if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    }
+
+    res.render('signup');
+  });
+
+  router.get('/new-post', (req, res) => {
+
+  if (req.session.loggedIn) {
+    res.render('new-post', {loggedIn: true})
+  } else {
+    
+      res.redirect('/');
+  }
+      
+    
+  })
+
+  
+
 
 
   module.exports = router;

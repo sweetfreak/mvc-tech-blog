@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 
 router.post('/', withAuth, (req, res) => {
     //check the session
-    if (req.session) {
+   
         Comment.create({     
             //use id fromt he session
             user_id: req.session.user_id,
@@ -30,7 +30,7 @@ router.post('/', withAuth, (req, res) => {
             console.log(err);
             res.status(400).json(err);
         });  
-    } 
+    
 });
 
 router.delete('/:id', withAuth, (req, res) => {

@@ -82,7 +82,7 @@ form label {
 }
 
 header {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid rgb(0, 0, 0);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -132,9 +132,9 @@ main {
   margin-left: 10px;
 }
 
-.post .title {
+/* .post .title {
  
-}
+} */
 
 .post .title span {
   font-size: 90%;
@@ -164,11 +164,11 @@ main {
 .comment {
   padding: 1%;
   margin-bottom: 1%;
+  background-color: #fff5eb;
+  border: 1px dashed rgb(0, 0, 0);
 }
 
-.comment:nth-child(odd) {
-  background-color: #fff5eb;
-}
+
 
 .meta {
   font-size: 90%;
@@ -181,8 +181,14 @@ main {
   width: 300px;
 }
 
+.post-text {
+  width: 300px; 
+  height: 200px;
+}
+
 .edit-post-form {
   margin-bottom: 5%;
+  word-break: break-all;
 }
 
 footer {
