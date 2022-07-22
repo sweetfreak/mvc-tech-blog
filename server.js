@@ -12,6 +12,7 @@ const hbs = exphbs.create({helpers});
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
 //"Super secret secret" should be replaced by an actual secret and stored in the .env file. All we need to do to tell our session to use cookies is to set cookie to be {}. If we wanted to set additional options on the cookie, like a maximum age, we would add the options to that object.
  const sess = {
   secret: 'Super secret secret',
